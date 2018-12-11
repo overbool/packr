@@ -69,7 +69,7 @@ var rootCMD = &cobra.Command{
 			return err
 		}
 
-		err = ioutil.WriteFile("./packer_generate.go", s.Bytes(), 0644)
+		err = ioutil.WriteFile("./packr_generate.go", s.Bytes(), 0644)
 		if err != nil {
 			return err
 		}
@@ -85,7 +85,7 @@ import "github.com/overbool/packr"
 
 func init() {
 	{{range .Ps}} 
-	packer.PackData("{{ $.Root }}", "{{ .Path }}", "{{ .Data }}")
+	packr.PackData("{{ $.Root }}", "{{ .Path }}", "{{ .Data }}")
 	{{end}}
 }
 `
